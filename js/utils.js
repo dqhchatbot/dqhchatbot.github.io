@@ -21,7 +21,7 @@ function getDateStr(time) {
 }
 
 function getFileName() {
-  return 'humgchatbot_backup_' + getDateStr(-1).replace(/\//g, '-').replace(/\:/g, '-').replace(/\s+/, '_') + '.json';
+  return 'dqhchatbot_backup_' + getDateStr(-1).replace(/\//g, '-').replace(/\:/g, '-').replace(/\s+/, '_') + '.json';
 }
 
 function download(filename, text) {
