@@ -1,5 +1,5 @@
 // CHANGE THIS
-var host = 'https://humgchatbot.herokuapp.com';
+var host = 'https://dqhchatbot.herokuapp.com';
 //var host = 'http://localhost:5000';
 setAppUrl(host);
 
