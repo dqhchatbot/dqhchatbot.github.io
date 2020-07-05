@@ -166,17 +166,17 @@ function uinfo(id) {
         if (data.errortype === 'auth') {
           redirectToLogin();
         } else {
-          $('#ptnkinfo').html(`<b>ID: ${id}</b><br>Couldn't get info for user ${id}<br>
-                              <button class="btn btn-danger" onclick="connectUsr('id1','id2','gender1','gender2')">Ghép nối</button>`);`);
+          $('#ptnkconnect').html(`<b>ID: ${id}</b><br>Couldn't get info for user ${id}<br>
+                              <button class="btn btn-danger" onclick="connectUsr('id1','id2','gender1','gender2')"></button>`);`);
         }
         return;
       }
 
       data = data.userProfile;
 
-      $('#ptnkinfo').html(`<b>ID: ${id}</b><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
+      $('#ptnkconnect').html(`<b>ID: ${id}</b><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
           <img src="${data.profile_pic}" width="100px"/><br>
-          <button class="btn btn-danger" onclick="connectUsr('id1','id2','gender1','gender2')">Ghép nối</button>`);`);
+          <button class="btn btn-danger" onclick="connectUsr('id1','id2','gender1','gender2')"></button>`);`);
     },
     errHandler
   );
@@ -191,7 +191,7 @@ function connectUsr(id1,id2,gender1,gender2) {
       { id1: id1,id2: id2,gender1: gender1,gender2: gender2, type: 'match' },
       function (res) {
         if (res.status === true) {
-          $('#ptnkinfo').html('connect chat for ID ' + id1 + id2);
+          $('#ptnkconnect').html('connect chat for ID ' + id);
           fetchData();
         }
       },
