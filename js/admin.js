@@ -167,7 +167,7 @@ function uinfo(id) {
           redirectToLogin();
         } else {
           $('#ptnkinfo').html(`<b>ID: ${id}</b><br>Couldn't get info for user ${id}<br>
-                              <button class="btn btn-danger" onclick="removeUsr(${id})">End chat</button>`);
+                              <button class="btn btn-danger" onclick="removeUsr(${id},1259415580831106,MALE,MALE)">End chat</button>`);
         }
         return;
       }
