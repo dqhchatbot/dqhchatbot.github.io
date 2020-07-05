@@ -24,56 +24,6 @@ function getDateStr(time) {
   );
 }
 
-function fetchChatRoom() {
-  makeRequest(
-    '/admin/read/chatroom',
-    'get',
-    {},
-    function (cr_data) {
-      if (cr_data.error === true && cr_data.errortype === 'auth') {
-        redirectToLogin();
-        return;
-      }
-
-      if (cr_data.success === true) {
-        var men = 0;
-        var women = 0;
-        var unk = 0;
-        var cr = '';
-
-        cr_data = cr_data.chatRoom;
-        cr_data.sort(function (a, b) {
-          if (a.time > b.time) return -1;
-          if (a.time < b.time) return 1;
-          return 0;
-        });
-
-        cr_data.forEach(function (e) {
-          if (e.gender1 === 'FEMALE') women++;
-          else if (e.gender1 === 'MALE') men++;
-          else unk++;
-
-          if (e.gender2 === 'FEMALE') women++;
-          else if (e.gender2 === 'MALE') men++;
-          else unk++;
-
-          var time = moment(e.time).format('llll');
-
-          cr += `<a onclick="uinfo(${e.id1})">${e.id1}</a> -
-                <a onclick="uinfo(${e.id2})">${e.id2}</a> - ${time}<br>`;
-        });
-
-        cr = `<br><b>PHÒNG CHAT (${cr_data.length} cặp - ${cr_data.length * 2} người:
-              ${men} nam, ${women} nữ, ${unk} khác):</b><br>${cr}`;
-        $('#ptnkcr').html(cr);
-      } else {
-        $('#ptnkcr').html('<b>Could not get chatroom: Unknown error</b>');
-      }
-    },
-    errHandler
-  );
-}
-
 function fetchWaitRoom() {
   makeRequest(
     '/admin/read/waitroom',
@@ -183,15 +133,15 @@ function uinfo(id) {
 }
 
 function removeUsr(id) {
-  var cf = confirm('Bạn có chắc muốn end chat người này?');
+  var cf = confirm('Bạn có chắc muốn Ghéo nối 2 người này?');
   if (cf)
     makeRequest(
       '/admin/edit/chatroom',
       'post',
-      { id: id, type: 'remove' },
+      { id1: id, id2: id, type: 'match' },
       function (res) {
         if (res.status === true) {
-          $('#ptnkinfo').html('Ended chat for ID ' + id);
+          $('#ptnkinfo').html('Conncet chat for ID ' + id);
           fetchData();
         }
       },
