@@ -182,7 +182,7 @@ function uinfo(id) {
   );
 }
       
-function removeUsr(id1,id2,gender1,gender2) {
+function connectUsr(id1,id2,gender1,gender2) {
   var cf = confirm('Bạn có chắc muốn ghép nối 2 người này?');
   if (cf)
     makeRequest(
