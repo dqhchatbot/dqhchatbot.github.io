@@ -166,7 +166,7 @@ function uinfo(id) {
         if (data.errortype === 'auth') {
           redirectToLogin();
         } else {
-          $('#ptnkconnect').html(`<b>ID: ${id}</b><br>Couldn't get info for user ${id}<br>
+          $('#ptnkinfo').html(`<b>ID: ${id}</b><br>Couldn't get info for user ${id}<br>
                               <button class="btn btn-danger" onclick="connectUsr('id1','id2','gender1','gender2')"></button>`);`);
         }
         return;
@@ -174,7 +174,7 @@ function uinfo(id) {
 
       data = data.userProfile;
 
-      $('#ptnkconnect').html(`<b>ID: ${id}</b><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
+      $('#ptnkinfo').html(`<b>ID: ${id}</b><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
           <img src="${data.profile_pic}" width="100px"/><br>
           <button class="btn btn-danger" onclick="connectUsr('id1','id2','gender1','gender2')"></button>`);`);
     },
@@ -191,7 +191,7 @@ function connectUsr(id1,id2,gender1,gender2) {
       { id1: id1,id2: id2,gender1: gender1,gender2: gender2, type: 'match' },
       function (res) {
         if (res.status === true) {
-          $('#ptnkconnect').html('connect chat for ID ' + id);
+          $('#ptnkinfo').html('connect chat for ID ' + id);
           fetchData();
         }
       },
