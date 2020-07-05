@@ -195,7 +195,7 @@ function connectUsr(){
       { id1: id1,id2: id2,gender1: gender1,gender2: gender2, type: 'match' },
       function (res) {
         if (res.status === true) {
-          $('#healerne').html('Kết Nối Thành Công ');
+          $('#ptnkinfo').html('Kết Nối Thành Công ');
           fetchData();
         }
       },
