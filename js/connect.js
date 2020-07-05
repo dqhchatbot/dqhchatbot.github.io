@@ -184,7 +184,7 @@ function uinfo(id) {
       
 function connectUsr(){
       var id1 = $('#id1').val();
-      var id1 = $('#id1').val();
+      var id2 = $('#id2').val();
       var gender1 = $('#gender1').val();
       var gender2 = $('#gender2').val();
   var cf = confirm('Bạn có chắc muốn ghép nối 2 người này?');
