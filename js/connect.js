@@ -166,8 +166,7 @@ function uinfo(id) {
         if (data.errortype === 'auth') {
           redirectToLogin();
         } else {
-          $('#ptnkinfo').html(`<b>ID: ${id}</b><br>Couldn't get info for user ${id}<br>
-                              <button class="btn btn-danger" onclick="connectUsr('id1','id2','gender1','gender2')">End chat</button>`);
+          $('#ptnkinfo').html(`<b>ID: ${id}</b><br>Couldn't get info for user ${id}<br>`);
         }
         return;
       }
@@ -175,8 +174,7 @@ function uinfo(id) {
       data = data.userProfile;
 
       $('#ptnkinfo').html(`<b>ID: ${id}</b><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
-          <img src="${data.profile_pic}" width="100px"/><br>
-          <button class="btn btn-danger" onclick="connectUsr('id1','id2','gender1','gender2')">End chat</button>`);
+          <img src="${data.profile_pic}" width="100px"/><br>`);
     },
     errHandler
   );
