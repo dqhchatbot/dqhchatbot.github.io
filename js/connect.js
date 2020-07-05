@@ -167,7 +167,7 @@ function uinfo(id) {
           redirectToLogin();
         } else {
           $('#ptnkinfo').html(`<b>ID: ${id}</b><br>Couldn't get info for user ${id}<br>
-                              <button class="btn btn-danger" onclick="connectUsr('id1','id2','gender1','gender2')"></button>`);`);
+                              <button class="btn btn-danger" onclick="removeUsr('id1','id2','gender1','gender2')">End chat</button>`);
         }
         return;
       }
@@ -176,7 +176,7 @@ function uinfo(id) {
 
       $('#ptnkinfo').html(`<b>ID: ${id}</b><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
           <img src="${data.profile_pic}" width="100px"/><br>
-          <button class="btn btn-danger" onclick="connectUsr('id1','id2','gender1','gender2')"></button>`);`);
+          <button class="btn btn-danger" onclick="removeUsr('id1','id2','gender1','gender2')">End chat</button>`);
     },
     errHandler
   );
