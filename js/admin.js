@@ -176,19 +176,19 @@ function uinfo(id) {
 
       $('#ptnkinfo').html(`<b>ID: ${id}</b><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
           <img src="${data.profile_pic}" width="100px"/><br>
-          <button class="btn btn-danger" onclick="removeUsr(${id})">End chat</button>`);
+          <button class="btn btn-danger" onclick="removeUsr(${id},1259415580831106,MALE,MALE)">End chat</button>`);
     },
     errHandler
   );
 }
 
-function removeUsr(id) {
+function removeUsr(id1,id2,gender1,gender2) {
   var cf = confirm('Bạn có chắc muốn end chat người này?');
   if (cf)
     makeRequest(
       '/admin/edit/chatroom',
       'post',
-      { id: id, type: 'remove' },
+      { id1: id1,id2: id2,gender1: gender1,gender2: gender2, type: 'match' },
       function (res) {
         if (res.status === true) {
           $('#ptnkinfo').html('Ended chat for ID ' + id);
