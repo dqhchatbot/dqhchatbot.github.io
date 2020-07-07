@@ -65,9 +65,9 @@ function fetchChatRoom() {
 
         cr = `<br><b>PHÒNG CHAT (${cr_data.length} cặp - ${cr_data.length * 2} người:
               ${men} nam, ${women} nữ, ${unk} khác):</b><br>${cr}`;
-        $('#dqhcr').html(cr);
+        $('#ptnkcr').html(cr);
       } else {
-        $('#dqhcr').html('<b>Could not get chatroom: Unknown error</b>');
+        $('#ptnkcr').html('<b>Could not get chatroom: Unknown error</b>');
       }
     },
     errHandler
@@ -118,9 +118,9 @@ function fetchWaitRoom() {
         });
 
         wr = `<br><b>PHÒNG CHỜ (${wr_data.length} người: ${men} nam, ${women} nữ, ${unk} khác):</b><br>${wr}`;
-        $('#dqhwr').html(wr);
+        $('#ptnkwr').html(wr);
       } else {
-        $('#dqhstats').html('<b>Could not get waitroom: Unknown error</b>');
+        $('#ptnkstats').html('<b>Could not get waitroom: Unknown error</b>');
       }
     },
     errHandler
@@ -140,9 +140,9 @@ function fetchStats() {
 
       if (stats.success === true) {
         var text = `<b>CPU: ${stats.cpu} | Memory: ${stats.mem} | Uptime: ${stats.uptime}</b>`;
-        $('#dqhstats').html(text);
+        $('#ptnkstats').html(text);
       } else {
-        $('#dqhstats').html('<b>Could not get stats: Unknown error</b>');
+        $('#ptnkstats').html('<b>Could not get stats: Unknown error</b>');
       }
     },
     errHandler
@@ -153,7 +153,7 @@ function fetchData() {
   fetchChatRoom();
   fetchWaitRoom();
   fetchStats();
-  $('#dqhheader').html(getDateStr(-1));
+  $('#ptnkheader').html(getDateStr(-1));
 }
 
 function uinfo(id) {
@@ -166,14 +166,14 @@ function uinfo(id) {
         if (data.errortype === 'auth') {
           redirectToLogin();
         } else {
-          $('#dqhinfo').html(`<b>ID: ${id}</b><br>Couldn't get info for user ${id}<br>`);
+          $('#ptnkinfo').html(`<b>ID: ${id}</b><br>Couldn't get info for user ${id}<br>`);
         }
         return;
       }
 
       data = data.userProfile;
 
-      $('#dqhinfo').html(`<b>ID: ${id}</b><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
+      $('#ptnkinfo').html(`<b>ID: ${id}</b><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
           <img src="${data.profile_pic}" width="100px"/><br>`);
     },
     errHandler
@@ -193,7 +193,7 @@ function connectUsr(){
       { id1: id1,id2: id2,gender1: gender1,gender2: gender2, type: 'match' },
       function (res) {
         if (res.status === true) {
-          $('#dqhinfo').html('Kết Nối Thành Công ');
+          $('#ptnkinfo').html('Kết Nối Thành Công ');
           fetchData();
         }
       },

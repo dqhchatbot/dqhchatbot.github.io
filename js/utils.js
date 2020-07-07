@@ -127,18 +127,18 @@ function checkInfo() {
         if (data.errortype === 'auth') {
           redirectToLogin();
         } else {
-          $('#dqhinfo').html(`Couldn't get info for user ${id}`);
+          $('#ptnkinfo').html(`Couldn't get info for user ${id}`);
         }
         return;
       }
 
       data = data.userProfile;
 
-      $('#dqhinfo').html(`<b>ID: ${id}</><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
+      $('#ptnkinfo').html(`<b>ID: ${id}</><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
                           <img src="${data.profile_pic}" width="100px"/><br>`);
     },
     function (xhr, ajaxOptions, thrownError) {
-      $('#dqhinfo').text(thrownError);
+      $('#ptnkinfo').text(thrownError);
     }
   );
 }
