@@ -65,9 +65,9 @@ function fetchChatRoom() {
 
         cr = `<br><b>PHÒNG CHAT (${cr_data.length} cặp - ${cr_data.length * 2} người:
               ${men} nam, ${women} nữ, ${unk} khác):</b><br>${cr}`;
-        $('#humgcr').html(cr);
+        $('#dqhcr').html(cr);
       } else {
-        $('#humgcr').html('<b>Could not get chatroom: Unknown error</b>');
+        $('#dqhcr').html('<b>Could not get chatroom: Unknown error</b>');
       }
     },
     errHandler
@@ -118,9 +118,9 @@ function fetchWaitRoom() {
         });
 
         wr = `<br><b>PHÒNG CHỜ<br>(${wr_data.length} người: ${men} nam, ${women} nữ, ${unk} khác):</b><br>${wr}`;
-        $('#humgwr').html(wr);
+        $('#dqhwr').html(wr);
       } else {
-        $('#humgstats').html('<b>Could not get waitroom: Unknown error</b>');
+        $('#dqhstats').html('<b>Could not get waitroom: Unknown error</b>');
       }
     },
     errHandler
@@ -140,9 +140,9 @@ function fetchStats() {
 
       if (stats.success === true) {
         var text = `<b>CPU: ${stats.cpu} | Memory: ${stats.mem} | Uptime: ${stats.uptime}</b>`;
-        $('#humgstats').html(text);
+        $('#dqhstats').html(text);
       } else {
-        $('#humgstats').html('<b>Could not get stats: Unknown error</b>');
+        $('#dqhstats').html('<b>Could not get stats: Unknown error</b>');
       }
     },
     errHandler
@@ -153,7 +153,7 @@ function fetchData() {
   fetchChatRoom();
   fetchWaitRoom();
   fetchStats();
-  $('#humgheader').html(getDateStr(-1));
+  $('#dqhheader').html(getDateStr(-1));
 }
 
 function uinfo(id) {
@@ -166,7 +166,7 @@ function uinfo(id) {
         if (data.errortype === 'auth') {
           redirectToLogin();
         } else {
-          $('#humginfo').html(`<b>ID: ${id}</b><br>Couldn't get info for user ${id}<br>
+          $('#dqhinfo').html(`<b>ID: ${id}</b><br>Couldn't get info for user ${id}<br>
                               <button class="btn btn-danger" onclick="removeUsr(${id})">End chat</button>`);
         }
         return;
@@ -174,7 +174,7 @@ function uinfo(id) {
 
       data = data.userProfile;
 
-      $('#humginfo').html(`<b>ID: ${id}</b><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
+      $('#dqhinfo').html(`<b>ID: ${id}</b><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
           <img src="${data.profile_pic}" width="100px"/><br>
           <button class="btn btn-danger" onclick="removeUsr(${id})">End chat</button>`);
     },
@@ -191,7 +191,7 @@ function removeUsr(id) {
       { id: id, type: 'remove' },
       function (res) {
         if (res.status === true) {
-          $('#humginfo').html('Ended chat for ID ' + id);
+          $('#dqhinfo').html('Ended chat for ID ' + id);
           fetchData();
         }
       },
