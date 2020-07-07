@@ -930,6 +930,12 @@ h1.page-header {
 }
 
 
+div.panel-top{
+	position: absolute;
+	right: 30px;
+	top: 114px;
+	background-color: #ffffff;
+}
 
 
 
