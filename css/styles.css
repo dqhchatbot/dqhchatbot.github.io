@@ -934,7 +934,6 @@ div.panel-top{
 	position: absolute;
 	right: 4%;
 	top: 22.5%;
-	@media all and (min-width: 320px)
 	background-color: #ffffff;
 }
 
