@@ -58,8 +58,9 @@ function fetchChatRoom() {
           else unk++;
 
           var time = moment(e.time).format('llll');
+          data = data.userProfile;
 
-          cr += `<a onclick="uinfo(${e.id1})">${e.id1}</a> -
+          cr += `<a onclick="uinfo(${data.name})">${data.name}</a><br><a onclick="uinfo(${e.id1})">${e.id1}</a> -
                 <a onclick="uinfo(${e.id2})">${e.id2}</a> - ${time}<br>`;
         });
 
