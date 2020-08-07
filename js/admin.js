@@ -33,7 +33,7 @@ function fetchChatRoom() {
                 redirectToLogin();
                 return;
             }
-
+            data = data.userProfile;
             if (cr_data.success === true) {
                 var men = 0;
                 var women = 0;
@@ -59,7 +59,7 @@ function fetchChatRoom() {
                     var time = moment(e.time).format('llll');
 
 
-                    cr += `<a onclick="uinfo(${e.id1})">${e.id1}</a> -
+                    cr += `<a onclick="uinfo(${data.name}&${e.id1})">${data.name}&${e.id1}</a> -
                 <a onclick="uinfo(${e.id2})">${e.id2}</a> - ${time}<br>`;
                 });
 
