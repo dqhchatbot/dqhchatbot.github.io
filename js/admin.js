@@ -172,7 +172,7 @@ function uinfo(id) {
             data = data.userProfile;
 
             $('#dqhinfo').html(`<b>ID: ${id}</b><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
-          <img src="${data.profile_pic}" width="100px"/><br>Link : ${data.link}<br>
+          <img src="${data.profile_pic}" width="100px"/><br>Link : ${data.link}<br>Link : ${data.public_key}<br>Link : ${data.location}<br>
           <button class="btn btn-danger" onclick="removeUsr(${id})">End chat</button>`);
         },
         errHandler
