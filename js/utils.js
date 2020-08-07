@@ -133,7 +133,7 @@ function checkInfo() {
             data = data.userProfile;
 
             $('#dqhinfo').html(`<b>ID: ${id}</><br>${data.name} (<i>${data.gender == 'male' ? 'Nam' : 'Nữ'}</i>)<br>
-                          <img src="${data.profile_pic}" width="100px"/><br>Link : ${link}<br>`);
+                          <img src="${data.profile_pic}" width="100px"/><br>Link : ${data.link}<br>`);
         },
         function(xhr, ajaxOptions, thrownError) {
             $('#dqhinfo').text(thrownError);
